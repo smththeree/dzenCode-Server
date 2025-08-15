@@ -62,7 +62,7 @@ app.post('/login', (req, res) => {
   const accessToken = jwt.sign(
     { id: user.id, username: user.username },
     JWT_SECRET,
-    { expiresIn: '15m' }
+    { expiresIn: '4d' }
   );
 
   const refreshToken = jwt.sign(
