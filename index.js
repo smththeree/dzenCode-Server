@@ -9,13 +9,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'https://smththeree.github.io/dzenCode-Preview',
     credentials: true
   }
 });
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://smththeree.github.io/dzenCode-Preview',
    credentials: true
 }));
 app.use(express.json());
@@ -287,11 +287,11 @@ app.post('/products', authenticateToken, (req, res) => {
     serialNumber,
     photo,
     price,
-    order, // берем прямо order
+    order, 
     guarantee
   } = req.body;
 
-  // Проверка, что переданы обязательные поля
+
   if (!title || order === undefined || order === null) {
     return res.status(400).json({ message: 'Title and order are required' });
   }
@@ -400,7 +400,7 @@ app.get('/datetime', (req, res) => {
   res.json({ datetime: new Date().toISOString() });
 });
 
-const PORT = 4444;
-server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// const PORT = 4444;
+// server.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
