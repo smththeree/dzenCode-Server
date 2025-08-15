@@ -400,7 +400,7 @@ app.get('/datetime', (req, res) => {
   res.json({ datetime: new Date().toISOString() });
 });
 
-// const PORT = 4444;
-// server.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+const PORT = 4444;
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
