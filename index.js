@@ -16,7 +16,8 @@ const io = new Server(server, {
 
 app.use(cors({
   origin: 'https://smththeree.github.io/dzenCode-Preview',
-   credentials: true
+   credentials: true,
+   methods: ['GET','POST','PUT','DELETE','OPTIONS']
 }));
 app.use(express.json());
 app.use(cookieParser());
@@ -400,7 +401,7 @@ app.get('/datetime', (req, res) => {
   res.json({ datetime: new Date().toISOString() });
 });
 
-const PORT = 4444;
+const PORT = process.env.PORT || 4444; 
 server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
